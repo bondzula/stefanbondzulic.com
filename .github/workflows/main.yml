@@ -21,7 +21,12 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET }}
           aws-region: us-east-1
+
+      - name: Download `.serverless` state from S3
+        run: aws s3 sync s3://${{ secrets.AWS_SERVERLESS_BUCKET }} .serverless --delete
+
       - name: Deploy Next.js app
         run: npx serverless
-        env:
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+
+      - name: Upload `.serverless` state to S3
+        run: aws s3 sync .serverless s3://${{ secrets.AWS_SERVERLESS_BUCKET }} --delete
