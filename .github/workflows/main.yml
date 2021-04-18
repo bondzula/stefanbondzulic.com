@@ -23,3 +23,5 @@ jobs:
           aws-region: us-east-1
       - name: Deploy Next.js app
         run: npx serverless
+        env:
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}

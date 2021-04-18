@@ -2,3 +2,5 @@ myPersonalSite:
   component: "@sls-next/serverless-component@1.18.0"
   inputs:
     domain: ["www", "stefanbondzulic.com"]
+    cloudfront:
+      distributionId: ${env.CLOUDFRONT_DISTRIBUTION_ID}
