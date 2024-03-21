@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # sst
 .sst
+
+# nix
+.direnv/
+.devenv/
+
