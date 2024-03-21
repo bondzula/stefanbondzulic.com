@@ -19,3 +19,11 @@ And run the dev server:
 ```bash
 npm run dev
 ```
+
+# Deploying to AWS
+
+First configure your AWS access, I would recommend deploying it on its own AWS account, and configuring AWS profile for a login. Change the profile in `sst.config.ts` to newly created profile, and then simply run:
+
+```bash
+npx sst deploy --stage prod
+```
